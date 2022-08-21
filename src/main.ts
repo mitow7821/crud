@@ -1,35 +1,6 @@
 import { createApp } from "vue";
 import "./style.css";
 import App from "./App.vue";
-import Table from "./components/Table.vue";
-import Form from "./components/Form.vue";
-import { createRouter, createWebHistory } from "vue-router";
-import { getAlbum } from "./useAlbums";
-
-const routes = [
-  { path: "/", component: Table, props: true, name: "Home" },
-  { path: "/:id", component: Form },
-  { path: "/add", component: Form },
-];
-
-export const router = createRouter({
-  history: createWebHistory(),
-  routes,
-});
-
-router.beforeEach((to, _, next) => {
-  if (!["/", "/add"].includes(to.path)) {
-    const albumId = to.params?.id;
-    const isPathValid = !!(albumId && getAlbum(+albumId));
-
-    if (!isPathValid) {
-      alert("Album does not exist!");
-
-      return next("/");
-    }
-  }
-
-  next();
-});
+import { router } from "./router";
 
 createApp(App).use(router).mount("#app");

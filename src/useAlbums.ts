@@ -62,7 +62,9 @@ async function init() {
   );
 }
 
-await init();
+(async () => {
+  await init();
+})();
 
 export { albums, getAlbums, getAlbum, addAlbum, editAlbum, removeAlbum };
 export type { AlbumItem };
