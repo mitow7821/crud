@@ -6,7 +6,7 @@
 
     <router-link
       to="/"
-      class="bg-blue-400 text-white px-5 py-1 rounded mt-auto self-start"
+      class="bg-blue-400 text-white px-5 py-1.5 rounded mt-auto self-start"
     >
       <div class="flex gap-1.5 items-center">
         <i class="fa-solid fa-arrow-left"></i>
@@ -21,7 +21,7 @@
 
       <input
         type="text"
-        class="border rounded py-1 px-3 w-72 md:w-full"
+        class="border rounded py-1.5 px-3 w-72 md:w-full"
         v-model="formData.title"
       />
     </div>

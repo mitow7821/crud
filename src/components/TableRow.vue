@@ -57,6 +57,6 @@ defineProps<{
 
 <style scoped>
 tr > td {
-  @apply md:p-2 p-0.5;
+  @apply p-2 md:p-0.5;
 }
 </style>

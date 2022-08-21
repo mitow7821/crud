@@ -2,7 +2,7 @@
   <div class="flex justify-between md:flex-col gap-3">
     <router-link
       to="/add"
-      class="bg-blue-400 text-white px-3 py-1 rounded mt-auto"
+      class="bg-blue-400 text-white px-3 py-1.5 rounded mt-auto"
     >
       <div class="flex gap-2 items-center md:justify-center">
         <i class="fa-solid fa-plus"></i>
@@ -12,7 +12,7 @@
 
     <input
       type="text"
-      class="border rounded py-1 px-3"
+      class="border rounded py-1.5 px-3"
       v-model="searchValue"
       placeholder="Search for albums"
     />
