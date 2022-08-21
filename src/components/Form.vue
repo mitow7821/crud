@@ -1,43 +1,58 @@
 <template>
-  <div class="bg-white shadow p-10 rounded-md h-full flex flex-col gap-5">
-    <div class="flex items-center justify-between">
-      <h1 class="font-semibold text-2xl">
-        {{ isAlbumEdited ? `Edit album (ID: ${params.id})` : "Add new album" }}
-      </h1>
+  <div class="flex items-center justify-between">
+    <h1 class="font-semibold text-2xl">
+      {{ isAlbumEdited ? `Edit album (ID: ${params.id})` : "Add new album" }}
+    </h1>
 
-      <router-link
-        to="/"
-        class="bg-blue-400 text-white px-5 py-1 rounded mt-auto self-start"
-      >
-        <i class="fa-solid fa-arrow-left pr-1.5"></i>
+    <router-link
+      to="/"
+      class="bg-blue-400 text-white px-5 py-1 rounded mt-auto self-start"
+    >
+      <div class="flex gap-1.5 items-center">
+        <i class="fa-solid fa-arrow-left"></i>
         Back
-      </router-link>
+      </div>
+    </router-link>
+  </div>
+
+  <form @submit="handleSubmit" class="grow flex flex-col w-full">
+    <div class="flex flex-col gap-0.5">
+      <span>Album title: </span>
+
+      <input
+        type="text"
+        class="border rounded py-1 px-3 w-72 md:w-full"
+        v-model="formData.title"
+      />
     </div>
 
-    <form @submit="handleSubmit" class="grow flex flex-col">
-      <div class="grid justify-start gap-0.5">
-        <span>Album title: </span>
+    <div class="flex gap-3 mt-auto md:grid md:grid-cols-2">
+      <button
+        type="submit"
+        class="
+          bg-blue-400
+          text-white
+          px-5
+          py-1.5
+          rounded
+          flex
+          gap-2
+          items-center
+          md:justify-center
+        "
+      >
+        <i class="fa-solid fa-floppy-disk"></i>
+        Save
+      </button>
 
-        <input
-          type="text"
-          class="border rounded py-1 px-3 w-72"
-          v-model="formData.title"
-        />
-      </div>
-
-      <div class="flex gap-3 mt-auto">
-        <button
-          type="submit"
-          class="bg-blue-400 text-white px-5 py-1.5 rounded"
-        >
-          <i class="fa-solid fa-floppy-disk pr-1.5"></i>
-          Save
-        </button>
-
-        <RemoveButton v-if="isAlbumEdited" :albumId="+params.id" />
-      </div>
-    </form>
-  </div>
+      <RemoveButton
+        v-if="isAlbumEdited"
+        :albumId="+params.id"
+        class="md:justify-center"
+        @albumRemoved="handleRemove"
+      />
+    </div>
+  </form>
 </template>
 
 <script setup lang="ts">
@@ -72,5 +87,10 @@ async function handleSubmit(e: Event) {
     name: "Home",
     params: { albumId },
   });
+}
+
+function handleRemove() {
+  router.push("/");
+  alert("Album has been removed");
 }
 </script>

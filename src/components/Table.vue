@@ -1,40 +1,34 @@
 <template>
-  <div
-    class="bg-white shadow p-10 rounded-md h-full flex flex-col gap-5 overflow-hidden"
-  >
-    <div class="flex justify-between">
-      <router-link
-        to="/add"
-        class="bg-blue-400 text-white px-3 py-1 rounded mt-auto"
-      >
-        <i class="fa-solid fa-plus pr-2"></i>
+  <div class="flex justify-between md:flex-col gap-3">
+    <router-link
+      to="/add"
+      class="bg-blue-400 text-white px-3 py-1 rounded mt-auto"
+    >
+      <div class="flex gap-2 items-center md:justify-center">
+        <i class="fa-solid fa-plus"></i>
         Add album
-      </router-link>
+      </div>
+    </router-link>
 
-      <input
-        type="text"
-        class="border rounded py-1 px-3"
-        v-model="searchValue"
-        placeholder="Search for albums"
-      />
-    </div>
+    <input
+      type="text"
+      class="border rounded py-1 px-3"
+      v-model="searchValue"
+      placeholder="Search for albums"
+    />
+  </div>
 
-    <div class="overflow-auto">
-      <table class="w-full">
-        <tr>
-          <th class="w-1/12">Id</th>
-          <th class="w-1/12 whitespace-nowrap">User Id</th>
-          <th class="w-7/12">Title</th>
-          <th class="w-3/12">Actions</th>
-        </tr>
+  <div class="overflow-auto">
+    <table class="w-full">
+      <tr class="md:hidden">
+        <th class="w-1/12">Id</th>
+        <th class="w-1/12 whitespace-nowrap">User Id</th>
+        <th class="w-7/12">Title</th>
+        <th class="w-3/12">Actions</th>
+      </tr>
 
-        <TableRow
-          v-for="album in visibleAlbums"
-          :key="album.id"
-          :album="album"
-        />
-      </table>
-    </div>
+      <TableRow v-for="album in visibleAlbums" :key="album.id" :album="album" />
+    </table>
   </div>
 </template>
 
@@ -71,7 +65,7 @@ onMounted(() => {
 
 <style scoped>
 tr {
-  @apply border-t;
+  @apply first:border-none border-t;
 }
 tr > th {
   @apply bg-gray-100 p-2 font-medium text-left sticky top-0;
