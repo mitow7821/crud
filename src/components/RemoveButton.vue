@@ -5,10 +5,8 @@
     @click="handleRemove"
     class="bg-red-400 text-white px-5 p-1.5 rounded mt-auto"
   >
-    <div class="flex gap-2 items-center">
-      <i class="fa-solid fa-trash-can"></i>
-      {{ "Remove" }}
-    </div>
+    <i class="fa-solid fa-trash-can pr-2"></i>
+    {{ "Remove" }}
   </button>
 </template>
 

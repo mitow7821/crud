@@ -9,16 +9,15 @@
         to="/"
         class="bg-blue-400 text-white px-5 py-1 rounded mt-auto self-start"
       >
-        <div class="flex gap-2 items-center">
-          <i class="fa-solid fa-arrow-left"></i>
-          Back
-        </div>
+        <i class="fa-solid fa-arrow-left pr-1.5"></i>
+        Back
       </router-link>
     </div>
 
     <form @submit="handleSubmit" class="grow flex flex-col">
       <div class="grid justify-start gap-0.5">
         <span>Album title: </span>
+
         <input
           type="text"
           class="border rounded py-1 px-3 w-72"
@@ -31,10 +30,8 @@
           type="submit"
           class="bg-blue-400 text-white px-5 py-1.5 rounded"
         >
-          <div class="flex gap-2 items-center">
-            <i class="fa-solid fa-floppy-disk"></i>
-            Save
-          </div>
+          <i class="fa-solid fa-floppy-disk pr-1.5"></i>
+          Save
         </button>
 
         <RemoveButton v-if="isAlbumEdited" :albumId="+params.id" />

@@ -7,11 +7,8 @@
         to="/add"
         class="bg-blue-400 text-white px-3 py-1 rounded mt-auto"
       >
-        <div class="flex gap-2 items-center">
-          <i class="fa-solid fa-plus"></i>
-
-          Add album
-        </div>
+        <i class="fa-solid fa-plus pr-2"></i>
+        Add album
       </router-link>
 
       <input
@@ -43,12 +40,9 @@
 
 <script setup lang="ts">
 import TableRow from "./TableRow.vue";
-import { getAlbums, albums } from "../useAlbums";
+import { albums } from "../useAlbums";
 import { computed, onMounted, ref } from "vue";
 import { useRoute } from "vue-router";
-import { router } from "../main";
-
-await getAlbums();
 
 const { params } = useRoute();
 const searchValue = ref("");

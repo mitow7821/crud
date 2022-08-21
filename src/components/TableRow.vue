@@ -16,11 +16,8 @@
           :to="`/${album.id}`"
           class="bg-blue-400 text-white px-4 py-1 rounded mt-auto whitespace-nowrap"
         >
-          <div class="flex gap-2 items-center">
-            <i class="fa-solid fa-pen-to-square"></i>
-
-            Edit
-          </div>
+          <i class="fa-solid fa-pen-to-square pr-2"></i>
+          Edit
         </router-link>
 
         <RemoveButton :albumId="album.id" class="px-2 py-1" />

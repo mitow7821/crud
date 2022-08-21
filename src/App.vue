@@ -4,9 +4,7 @@
       <Suspense :timeout="0">
         <component :is="Component" />
 
-        <template #fallback>
-          <Loader />
-        </template>
+        <template #fallback> Loading... </template>
       </Suspense>
     </RouterView>
   </div>
